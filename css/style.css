@@ -87,6 +87,28 @@ nav ul li a:hover .nav-icon-linkedin {
 
 .index-container {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    height: 100vh;            /* Makes sure the body takes the full height of the viewport */
+    margin: 0;                /* Removes default body margin */
+}
+
+.cv-wrapper {
+    position: absolute;             /* Use absolute positioning */
+    top: 50%;                       /* Center vertically */
+    left: 50%;                      /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    display: flex;
+    justify-content: space-between; /* Distribute the boxes to the left and right */
+    align-items: center;            /* Center vertically in the wrapper */
+    width: 100%;                    /* Full width of the wrapper */
+    max-width: 800px;              /* Optional: Limits maximum width */
+}
+
+.cv-box1, .cv-box2 {
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    border: 1px solid #ccc;         /* Optional: Adds a border */
+    flex: 1;                        /* Makes the boxes take equal width */
+    margin: 0 10px;                 /* Adds space between the boxes */
 }
