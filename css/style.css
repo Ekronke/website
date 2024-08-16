@@ -94,21 +94,53 @@ nav ul li a:hover .nav-icon-linkedin {
 }
 
 .cv-wrapper {
-    position: absolute;             /* Use absolute positioning */
-    top: 50%;                       /* Center vertically */
-    left: 50%;                      /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for centering */
-    display: flex;
-    justify-content: space-between; /* Distribute the boxes to the left and right */
-    align-items: center;            /* Center vertically in the wrapper */
-    width: 100%;                    /* Full width of the wrapper */
-    max-width: 800px;              /* Optional: Limits maximum width */
+    display: flex;               /* Enables flexbox layout */
+    justify-content: space-between; /* Distributes the boxes evenly */
+    gap: 20px;                   /* Adds spacing between boxes */
 }
 
 .cv-box1, .cv-box2 {
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-    border: 1px solid #ccc;         /* Optional: Adds a border */
-    flex: 1;                        /* Makes the boxes take equal width */
-    margin: 0 10px;                 /* Adds space between the boxes */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;                     /* Boxes take up equal width */
+    margin: 0;                   /* Removes margin since gap handles spacing */
+    box-sizing: border-box;      /* Ensures padding is included in the element's total width/height */
+}
+
+.cv-box1 ul, .cv-box2 ul {
+    list-style-type: none;        /* Removes default bullet points */
+    padding: 0;                   /* Removes default padding */
+    margin: 0;                    /* Removes default margin */
+}
+
+.cv-box1 h2, .cv-box2 h2 {
+    font-size: 20px;              /* Sets font size for the headings */
+    margin-bottom: 15px;          /* Adds space below the heading */
+    text-align: left;             /* Aligns the heading text to the left */
+}
+
+.cv-box1 li, .cv-box2 li {
+    margin-bottom: 10px;          /* Adds space between list items */
+    font-size: 16px;              /* Sets font size */
+    line-height: 1.5;             /* Adjusts line height for readability */
+    display: flex;                /* Makes list items use flexbox */
+    justify-content: space-between; /* Distributes space evenly */
+    flex-wrap: wrap;              /* Allows items to wrap if necessary */
+}
+
+.cv-box1 li .role, .cv-box2 li .role {
+    font-weight: bold;            /* Makes the role bold */
+    flex: 1;                      /* Role takes up most space */
+}
+
+.cv-box1 li .company, .cv-box2 li .company {
+    color: gray;                  /* Gives the company name a different color */
+    flex: 1;                      /* Company takes up space but allows wrapping */
+    text-align: center;           /* Aligns company in the center */
+}
+
+.cv-box1 li .date, .cv-box2 li .date {
+    color: #777;                  /* Gives the date a lighter color */
+    flex: 0 1 150px;              /* Date has a fixed width but can shrink */
+    text-align: right;            /* Aligns date to the right */
 }
