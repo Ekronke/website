@@ -51,16 +51,7 @@ section p {
     margin: 0 auto;
 }
 
-/* Background color for each section */
-#about {
-    background-color: #0d1117; /* Same background for consistency */
-}
-
-#projects {
-    background-color: #0d1117; /* Same background for consistency */
-}
-
-#experience {
+.experience-div {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;

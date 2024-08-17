@@ -1,4 +1,3 @@
-// JavaScript to detect scroll and apply fade-in class
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
 
@@ -15,10 +14,3 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 });
-
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
