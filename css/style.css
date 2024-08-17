@@ -1,146 +1,183 @@
+/* Reset some default styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-	overflow: hidden;
     font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #0d1117; /* Dark background similar to GitHub Copilot */
+    color: #c9d1d9; /* Light grey text color */
     margin: 0;
     padding: 0;
-    background-color: #1C1C1C; /* Dark grey */
-    color: #BBE1FA; /* Set text color to white for contrast */
 }
 
-/* Navigation Bar Styles */
-nav {
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
+body, ul, li, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Add box-sizing reset */
+}
+
+
+/* Section styles */
+/* Add this CSS for fade-in effect */
+section {
+	height: 100vh;
+    padding: 4rem 2rem;
+    text-align: left;
+    background-color: #0d1117;
+    opacity: 0; /* Start with the section invisible */
+    transform: translateY(20px); /* Slightly move the section down */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+section.fade-in {
+    opacity: 1; /* Fade in the section */
+    transform: translateY(0); /* Move section to original position */
+}
+
+section h2 {
+	text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Larger font size for section titles */
+    color: #f0f6fc; /* Lighter color for section titles */
+}
+
+section p {
+    font-size: 1.2rem;
+    color: #8b949e; /* Muted grey for paragraph text */
+    max-width: 800px; /* Restrict the width of the paragraph text */
+    margin: 0 auto;
+}
+
+/* Background color for each section */
+#about {
+    background-color: #0d1117; /* Same background for consistency */
+}
+
+#projects {
+    background-color: #0d1117; /* Same background for consistency */
+}
+
+#experience {
     width: 100%;
-    z-index: 1000;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-nav ul {
-    list-style-type: none;
+.experience-item {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start; /* Align items at the top */
+}
+
+.year {
+    flex: 0 0 100px; /* Fixed width to ensure consistent space */
+    font-weight: bold;
+    padding-right: 20px;
+    text-align: left;
+    margin-top: 0;
+}
+
+.role-company {
+    flex: 1; /* Allow this section to take up the remaining space */
+    display: flex;
+    flex-direction: column; /* Stack header and paragraph vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+.role-company h3 {
     margin: 0;
     padding: 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Align items vertically */
+    line-height: 1.4; /* Slightly increased line height for better readability */
+    font-size: 1.1em; /* Slightly larger font size */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 20px;
+.role-company p {
+    margin: 5px 0 0 0;
+    color: #666; /* Slightly darker color for better contrast */
+    font-size: 0.95em; /* Slightly smaller font size for descriptions */
+    line-height: 1.4;
 }
 
-nav ul li a {
-    color: #808080; /* Set text color to grey */
-    text-decoration: none;
-    font-size: 30px;
-	font-weight: bold;
-    display: flex;
-    align-items: center; /* Align text and icons vertically */
-    transition: color 0.3s ease-in-out;
+@media (max-width: 768px) {
+    .experience-item {
+        flex-direction: column; /* Stack items on smaller screens */
+        align-items: flex-start;
+    }
+
+    .year {
+        margin-bottom: 5px; /* Add some spacing between year and role-company */
+    }
 }
 
-nav ul li a:hover {
-    color: #fff; /* Change text color to white on hover */
+#education {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
+        align-items: center; /* Center items vertically */
     }
 
     nav ul li {
-        display: block;
         margin: 10px 0;
     }
 }
 
-/* Navigation Bar Styles */
-nav ul li a .nav-icon-github {
-    width: 32px; /* Increase the width of the SVG */
-    height: 32px; /* Increase the height of the SVG */
-    transition: transform 0.3s ease-in-out; /* Optional: Add a smooth transition effect for resizing */
+/* Navbar styles */
+nav {
+    background-color: #161b22; /* Darker background for navbar */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
 }
 
-nav ul li a:hover .nav-icon-github {
-    transform: scale(1.1); /* Optional: Slightly increase the size on hover */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Navigation Bar Styles */
+nav ul li {
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    color: #c9d1d9; /* Light grey color for links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px; /* Slightly smaller font size */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #58a6ff; /* Blue color on hover */
+}
+
+/* Icon Styles */
+nav ul li a .nav-icon-github,
 nav ul li a .nav-icon-linkedin {
-    width: 40px; /* Increase the width of the SVG */
-    height: 40px; /* Increase the height of the SVG */
-    transition: transform 0.3s ease-in-out; /* Optional: Add a smooth transition effect for resizing */
+    width: 24px; /* Adjust icon size */
+    height: 24px;
+    margin-right: 8px; /* Add space between icon and text */
+    transition: transform 0.3s ease-in-out;
 }
 
+nav ul li a:hover .nav-icon-github,
 nav ul li a:hover .nav-icon-linkedin {
-    transform: scale(1.1); /* Optional: Slightly increase the size on hover */
-}
-
-.index-article {
-	font-size: 30px;
-	padding: 10px;
-	max-width: 50%; 
-}
-
-.index-container {
-	display: flex;
-    justify-content: center;  /* Centers horizontally */
-    align-items: center;      /* Centers vertically */
-    height: 100vh;            /* Makes sure the body takes the full height of the viewport */
-    margin: 0;                /* Removes default body margin */
-}
-
-.cv-wrapper {
-    display: flex;               /* Enables flexbox layout */
-    justify-content: space-between; /* Distributes the boxes evenly */
-    gap: 20px;                   /* Adds spacing between boxes */
-}
-
-.cv-box1, .cv-box2 {
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 1;                     /* Boxes take up equal width */
-    margin: 0;                   /* Removes margin since gap handles spacing */
-    box-sizing: border-box;      /* Ensures padding is included in the element's total width/height */
-}
-
-.cv-box1 ul, .cv-box2 ul {
-    list-style-type: none;        /* Removes default bullet points */
-    padding: 0;                   /* Removes default padding */
-    margin: 0;                    /* Removes default margin */
-}
-
-.cv-box1 h2, .cv-box2 h2 {
-    font-size: 20px;              /* Sets font size for the headings */
-    margin-bottom: 15px;          /* Adds space below the heading */
-    text-align: left;             /* Aligns the heading text to the left */
-}
-
-.cv-box1 li, .cv-box2 li {
-    margin-bottom: 10px;          /* Adds space between list items */
-    font-size: 16px;              /* Sets font size */
-    line-height: 1.5;             /* Adjusts line height for readability */
-    display: flex;                /* Makes list items use flexbox */
-    justify-content: space-between; /* Distributes space evenly */
-    flex-wrap: wrap;              /* Allows items to wrap if necessary */
-}
-
-.cv-box1 li .role, .cv-box2 li .role {
-    font-weight: bold;            /* Makes the role bold */
-    flex: 1;                      /* Role takes up most space */
-}
-
-.cv-box1 li .company, .cv-box2 li .company {
-    color: gray;                  /* Gives the company name a different color */
-    flex: 1;                      /* Company takes up space but allows wrapping */
-    text-align: center;           /* Aligns company in the center */
-}
-
-.cv-box1 li .date, .cv-box2 li .date {
-    color: #777;                  /* Gives the date a lighter color */
-    flex: 0 1 150px;              /* Date has a fixed width but can shrink */
-    text-align: right;            /* Aligns date to the right */
+    transform: scale(1.1); /* Slightly increase size on hover */
 }
