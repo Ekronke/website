@@ -17,15 +17,5 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if (element) {
-      // Get the height of the header to offset the scroll position
-      const headerHeight = document.querySelector('header').offsetHeight;
-      
-      // Scroll to the position calculated
-      window.scrollTo({
-        top: element.offsetTop - (window.innerHeight / 2) + (element.offsetHeight / 2) - headerHeight,
-        behavior: 'smooth'
-      });
-    }
-  }
+	document.getElementById('id').scrollIntoView();
+}
